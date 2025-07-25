@@ -152,7 +152,9 @@
     <!-- Meetings -->
     <section class="content-row container" id="meetings">
       <div class="image-box">
-        <img src="https://i.postimg.cc/FswBdmn6/main-photo.png" alt="Meetings" />
+        <div class="carousel-container">
+          <img class="carousel-image" id="carousel-meeting-image" src="https://i.postimg.cc/vTMzs95s/Screenshot-2025-07-25-at-11-29-07-AM.png" alt="Meeting Image" />
+        </div>
       </div>
       <div class="text-box green-box">
         <h2>Meetings</h2>
@@ -181,7 +183,9 @@
         </p>
       </div>
       <div class="image-box">
-        <img src="https://i.postimg.cc/PJpMTvh5/main-2.png" alt="Workshops" />
+         <div class="carousel-container">
+          <img class="carousel-image" id="carousel-w-image" src="https://i.postimg.cc/CKBJHwwW/Screenshot-2025-07-25-at-11-27-59-AM.png" alt="Socials Image" />
+        </div>
       </div>
     </section>
 
@@ -304,6 +308,36 @@
 
     setInterval(showNextSocial, 5000);
     socialImg.addEventListener("click", showNextSocial);
+
+    const meetings = [
+      "https://i.postimg.cc/vTMzs95s/Screenshot-2025-07-25-at-11-29-07-AM.png",
+      "https://i.postimg.cc/90rGVpzs/Screenshot-2025-07-25-at-11-46-41-AM.png"
+    ];
+    let meetingIndex = 0;
+    const meetingImg = document.getElementById("carousel-meeting-image");
+
+    function showNextMeeting() {
+      meetingIndex = (meetingIndex + 1) % meetings.length;
+      meetingImg.src = meetings[meetingIndex];
+    }
+
+    setInterval(showNextMeeting, 5000);
+    meetingImg.addEventListener("click", showNextMeeting);
+
+    const workshops = [
+      "https://i.postimg.cc/CKBJHwwW/Screenshot-2025-07-25-at-11-27-59-AM.png",
+      "https://i.postimg.cc/ZKsMr7rv/Screenshot-2025-07-25-at-11-41-30-AM.png"
+    ];
+    let wIndex = 0;
+    const wImg = document.getElementById("carousel-w-image");
+
+    function showNextw() {
+      wIndex = (wIndex + 1) % workshops.length;
+      wImg.src = workshops[wIndex];
+    }
+
+    setInterval(showNextw, 5000);
+    wImg.addEventListener("click", showNextw);
 
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
